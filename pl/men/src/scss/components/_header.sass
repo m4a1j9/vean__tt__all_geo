@@ -1,0 +1,163 @@
+.test_header
+    display: flex
+    flex-direction: row
+    align-items: top
+
+    width: 100%
+
+    @include adaptive-value('margin-top',55,10,1)
+
+    .test_header__logo
+        display: flex
+        flex-direction: row
+        align-items: center
+
+        width: 50%
+        @include adaptive-value('height',30,26,1)
+
+        padding-left: 70px
+
+        .test_header__change_lang
+            position: relative
+            cursor: pointer
+
+            margin-left: 30px
+
+            display: none
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+            &:hover > .langs
+                visibility: visible
+                opacity: 1
+                transform: translateY(0px)
+                pointer-events: all
+
+            .test_header__lang
+
+                text-transform: uppercase
+                cursor: pointer
+
+                &:hover
+                    font-weight: 600
+            .langs
+                position: absolute
+                top: 100%
+
+                background: #2B3141
+                border-radius: 6px
+                box-shadow: 0 30px 20px rgb(45 60 88 / 15%)
+                padding: 20px
+                text-transform: uppercase
+                z-index: 5
+                overflow: hidden
+                overflow-y: auto
+                max-height: 80vh
+
+                visibility: hidden
+                opacity: 0
+                transform: translateY(-20px)
+                pointer-events: none
+                transition: 0.5s
+
+                &:hover
+                    visibility: visible
+                    opacity: 1
+                    transform: translateY(0px)
+                    pointer-events: all
+
+                .lang
+                    cursor: pointer
+
+                    &:hover
+                        font-weight: 600
+
+    .test_header__progress_container
+        display: none
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+        @include adaptive-value('margin-top',15,0,1)
+
+        width: 50%
+
+        &._show
+            display: flex
+
+        .test_header__progress_bar
+
+            display: block
+
+            @include adaptive-value('width',500,310,1)
+            height: 6px
+
+            margin-bottom: 16px
+
+            background: #424A66
+            &::-webkit-progress-bar
+                background: #424A66
+
+                border-radius: 5px
+
+                transition: 0.3s
+            &::-webkit-progress-value
+                background: #F8C476
+                border-radius: 5px
+
+                transition: 0.3s
+            &::-moz-progress-bar
+                background: #F8C476
+                border-radius: 5px
+
+                transition: 0.3s
+        &._show
+            display: flex
+
+        .test_header__interactive
+            @include adaptive-value('width',500,310,1)
+
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+
+            .test_header__arrow
+                min-width: 18px
+                min-height: 16px
+
+                background: url('../img/icons/arrow.png') 50% 50%/ contain no-repeat
+
+                pointer-events: none
+                visibility: hidden
+                &._show
+                    pointer-events: all
+                    visibility: visible
+            ._index
+                color: #F4955F
+
+    &._plan
+        position: absolute
+        top: 55px
+        left: 70px
+
+        margin: 0
+        .test_header__logo
+            padding: 0
+
+    &._checkout
+        position: fixed
+        top: 28px
+        left: 55px
+
+        width: 80px
+
+        margin: 0
+
+        z-index: 10
+
+        .test_header__logo
+            padding: 0
+
+        .test_header__lang
+            display: none

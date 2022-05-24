@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" data-country="US" data-gender="female">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Weight Loss Plans</title>
+
+    <!--OPEN GRAPH-->
+    <meta name="description"
+        content="Ready to stop dieting? Learn to eat mindfully. Psychology is the key to lasting change.">
+    <meta property="og:title" content="Personal Weight Loss Plans" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vean.io/ext/v1_vean/" />
+    <meta property="og:image" content="img/title.png" />
+    <!--OPEN GRAPH-->
+
+    <script defer src="https://js.stripe.com/v3/"></script>
+    <!-- prod -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AaPzPAMcwhMRMzzvBj8IOHyf8RRwMoiKUSHPJ-YAl_nJkn7Pl_mbSx2ba0a0_3qoDhDk-rgkzJDIYPdO&components=buttons&vault=true&intent=subscription">
+    </script>
+    <!-- dev -->
+    <!-- <script src="https://www.paypal.com/sdk/js?client-id=AeAT75Pf2dc706MYAB0BATqAs_pT-7z0r2GtbnS4bQj8RxC36cV9xqbL9wz2PAfYJP75XxKpO5-_FXx2&components=buttons&vault=true&intent=subscription"></script> -->
+    <script defer src="js/main.js"></script>
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N7ZGMQ8');
+
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7ZGMQ8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main>
+        <div class="bg"></div>
+        <div class="container">
+
+            <!-- ____________________________________________________________________________ -->
+
+            <header class="test_header">
+                <div class="test_header__logo">
+                    <img src="img/icons/logo.png" alt="logo">
+                    <div class="test_header__change_lang">
+                        <p class="test_header__lang g">
+                            =
+                        </p>
+                        <ul class="langs">
+                            <a class="lang" href="https://vean.io/ext/v1_vean/" data-lang="us">
+                                english
+                            </a>
+                            <a class="lang" href="https://vean.io/ext/v1_vean/" data-lang="ro">
+                                romanian
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="test_header__progress_container _show">
+                    <progress class="test_header__progress_bar" value="1" max="18"></progress>
+                    <div class="test_header__interactive">
+                        <div class="test_header__arrow test__buttonB _show"></div>
+                        <div class="test_header__progress b">
+                            <span class="_index b">1</span>/18
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ____________________________________________________________________________ -->
+
+            @include('partials/test.html', {})
+
+            <!-- ____________________________________________________________________________ -->
+
+            @include('partials/loader.html', {})
+
+            <!-- ____________________________________________________________________________ -->
+
+            @include('partials/contacts.html', {})
+
+            <!-- ____________________________________________________________________________ -->
+
+            @include('partials/plan.html', {})
+
+            <!-- ____________________________________________________________________________ -->
+
+            @include('partials/checkout.html', {})
+
+            <!-- ____________________________________________________________________________ -->
+
+            <!-- @include('partials/pay.html', {}) -->
+
+        </div>
+
+        <p class="rights _show">
+            <span class="reserved g">
+                2020 © Vean. All rights reserved
+            </span>
+            <span class="email g">
+                Email: support@vean.io
+            </span>
+            <span class="policy">
+                <a class="terms_el g" href="https://vean.io/en/terms" target="_blank">
+                    Terms of Use
+                </a>
+                <a class="privacy g" href="https://vean.io/en/privacy" target="_blank">
+                    Privacy Policy
+                </a>
+                <a class="cookie g" href="https://vean.io/en/research-policy" target="_blank">
+                    Cookie Policy
+                </a>
+            </span>
+        </p>
+    </main>
+
+    <section class="modal__container">
+
+        <div class="modal m1" data-modal="1">
+            <div class="m__close m1__close"></div>
+
+            <img src="img/basket.png" alt="basket" class="m__img">
+            <p class="m1__title b">
+                Submit a secure payment
+            </p>
+
+            <div class="m1__pay_methods">
+                <input type="radio" class="m1__pay_method" id="credit_card" name="pay_method" checked>
+                <label for="credit_card">
+                    <img src="img/credit_card.png" alt="credit_card" class="m1__credit_card_img">
+                    <p class="m1__pay_method_title g b">
+                        CREDIT CARD
+                    </p>
+                    <img src="img/icons/check.png" alt="check" class="m1__method_check">
+                </label>
+                <!-- <input type="radio" class="m1__pay_method" id="pay_pal" name="pay_method">
+                <label for="pay_pal">
+                    <img src="img/pay_pal.png" alt="pay_pal" class="m1__pay_pal_img">
+                    <p class="m1__pay_method_title g b">
+                        PAY PAL
+                    </p>
+                    <img src="img/icons/check.png" alt="check" class="m1__method_check">
+                </label> -->
+            </div>
+
+            <div class="m1__main">
+                <div class="m1__order">
+                    <p class="m1__order_title b">
+                        Your Order Summary
+                    </p>
+                    <p class="m1__order_desc">
+                        <span class="m1__tarif_name g">Personalized Weight Loss Plan</span>
+                        <span class="m1__tarif_coast g"></span>
+                    </p>
+                    <p class="m1__order_sale">
+                        <span class="g">70% discount</span>
+                        <span class="m1__sale_amount b r">-</span>
+                    </p>
+
+                    <hr class="horizontal">
+
+                    <p class="m1__total">
+                        <span class="b">Total:</span>
+                        <span class="m1__total_coast b"></span>
+                    </p>
+                    <p class="m1__saved b r">
+                        You just saved <span class="m1__saved_amount b r"></span> (70% off)
+                    </p>
+                    <div class="order__error">
+                        <p class="order__error_title b r">
+                            <img src="img/icons/!.png" alt="!" class="order_error_img">
+                            An error occurred while paying
+                        </p>
+                        <p class="order__error_desc">
+                            Please check your data or use another card.
+                        </p>
+                    </div>
+                </div>
+                <div class="vertical"></div>
+                <div class="m1__pay _show">
+                    <img src="img/icons.png" alt="icons" class="m1__icons">
+
+
+                    <!-- PAY -->
+
+
+                    <div class="card_container1">
+                        <!-- <label for="card-element">Card number</label> -->
+                        <div id="card-element" class="StripeElement StripeElement--empty form-payment__number">
+                        </div>
+                    </div>
+                    <div id="card-errors" style="height: 20px;"></div>
+
+                    <div class="form-payment__wrap">
+                        <div class="card_container">
+                            <!-- <label for="card-element2">MM/YY</label> -->
+                            <div id="card-element2" class="StripeElement StripeElement--empty form-payment__date">
+                            </div>
+                        </div>
+
+                        <div class="card_container">
+                            <!-- <label for="card-element3">CVC2</label> -->
+                            <div id="card-element3" class="StripeElement StripeElement--empty form-payment__cvv">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <input type="email" placeholder="Enter e-mail" class="m1__email test__input" name="email"
+                        id="email">
+                    <div class="test__uncorrect r b">
+                        Enter correct email, pls
+                    </div> -->
+                    <div id="payment-request-button-apple"></div>
+                    <div id="payment-request-button"></div>
+                    <div class="sectPay__btn">
+                        <button disabled class="m1__button_next js-submit stripe-button" type="button">
+                            <span class="b">CONTINUE</span>
+                            <img src="img/icons/lock_m.png" alt="next">
+                        </button>
+                        <div class="data_pusher _show"></div>
+                    </div>
+
+                    <div class="m1__loading">
+                        <p class="m1__load_title">
+                            Please, wait…
+                        </p>
+                        <div class="spiner">
+                            <div class="spiner__container spiner__container_1">
+                                <div class="spiner__circle spiner__circle_1 spiner__circle_animation-1"></div>
+                                <div class="spiner__circle spiner__circle_2 spiner__circle_animation-3"></div>
+                                <div class="spiner__circle spiner__circle_3 spiner__circle_animation-5"></div>
+                                <div class="spiner__circle spiner__circle_4 spiner__circle_animation-7"></div>
+                            </div>
+                            <div class="spiner__container spiner__container_2">
+                                <div class="spiner__circle spiner__circle_1 spiner__circle_animation-2"></div>
+                                <div class="spiner__circle spiner__circle_2 spiner__circle_animation-4"></div>
+                                <div class="spiner__circle spiner__circle_3 spiner__circle_animation-6"></div>
+                                <div class="spiner__circle spiner__circle_4 spiner__circle_animation-8"></div>
+                            </div>
+                        </div>
+                        <p class="m1__load_desc">
+                            We wait for your payment to be confirmed.
+                        </p>
+                    </div>
+
+
+                    <!-- PAY -->
+
+
+                </div>
+
+                <div id="paypal-button-container" class="m1__pay_pal"></div>
+
+                <div class="order__error_M">
+                    <p class="order__error_title b r">
+                        <img src="img/icons/!.png" alt="!" class="order_error_img">
+                        An error occurred while paying
+                    </p>
+                    <p class="order__error_desc">
+                        Please check your data or use another card.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal m2" data-modal="2">
+            <img src="img/lamp.png" alt="lamp" class="m__img">
+            <p class="m2__title b">
+                Did you know?
+            </p>
+            <p class="m2__desc">
+                <span class="b">65%</span> of users who started their <span class="b">Weight Loss Plan with Vean</span>
+                advanced in their goals within the <span class="b">first month*</span>
+            </p>
+
+            <div class="m2__main">
+                <div class="m2__graph_wrap">
+                    <img src="img/modal_graph.png" alt="graph" class="m2__graph">
+                    <span class="m2__weight m2__graph_text b">
+                        Your Weight
+                    </span>
+                    <span class="m2__without m2__graph_text b">
+                        Without Program
+                    </span>
+                    <span class="m2__with m2__graph_text b r">
+                        Vean Users
+                    </span>
+                    <span class="m2__today m2__graph_text b g">
+                        Today
+                    </span>
+                    <span class="m2__mounth m2__graph_text b g">
+                        1-st Month
+                    </span>
+                </div>
+                <p class="m2__graph_desc g">
+                    * based on the information of users who log their progress during the course
+                </p>
+                <p class="m2__care">
+                    We want you to find success so we are offering the <span class="b"><span class="b r">additional
+                            discount</span> on your Weight Loss Plan.</span>
+                </p>
+            </div>
+
+            <button class="js-modal-close m2__close" type="button">
+                <span class="b">GOT IT</span>
+                <img src="img/icons/next.png" alt="next">
+            </button>
+        </div>
+
+        <div class="modal m3" data-modal="3">
+            <div class="m__close js-modal-close"></div>
+            <img src="img/like.png" alt="like" class="m__img">
+
+            <p class="m__title b">
+                Thank you!
+            </p>
+
+            <p class="m__text b">
+                Payment is successful.
+            </p>
+
+            <p class="m__desc">
+                Please, check your email and follow our instructions.
+            </p>
+        </div>
+
+        <div class="overlay js-overlay-modal" id="overlay-modal"></div>
+
+    </section>
+
+</body>
+
+
+</html>

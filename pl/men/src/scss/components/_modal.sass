@@ -1,0 +1,714 @@
+.modal__container
+    .overlay
+        opacity: 0
+        visibility: hidden
+        pointer-events: none
+
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: rgb(50, 56, 77, 0.3)
+        backdrop-filter: blur(10px)
+        z-index: 20
+        transition: 0.3s all
+
+        &._active
+            opacity: 1
+            visibility: visible
+            pointer-events: all
+
+    .modal
+        display: none
+        flex-direction: column
+        align-items: center
+
+        height: fit-content
+
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+
+        margin: auto
+
+        z-index: 30
+
+        background: #111317
+        box-shadow: 0px 30px 20px rgba(45, 60, 88, 0.15)
+        border-radius: 6px
+
+        @include adaptive-value('padding-bottom',60,40,1)
+
+        &._active
+            display: flex
+
+    .m__img
+        position: relative
+        top: -31px
+
+        filter: drop-shadow(0px 30px 20px rgba(45, 60, 88, 0.15))
+
+    .m__close
+        width: 12px
+        height: 12px
+
+        background: url('../img/icons/cross_m.png') 0% 0%/ contain no-repeat
+
+        position: absolute
+        top: 17px
+        right: 15px
+
+    .m1
+        width: 800px
+
+        @include adaptive-value('padding-right',40,0,1)
+        @include adaptive-value('padding-left',40,0,1)
+
+        max-height: 100vh
+
+        .m1__title
+            @include adaptive-value('font-size',32,24,1)
+            line-height: 36px
+            text-align: center
+
+        .m1__pay_methods
+            display: flex
+            flex-direction: row
+
+            @include adaptive-value('margin-top',40,10,1)
+
+            .m1__pay_method
+                display: none
+
+            .m1__pay_method + label
+                width: 120px
+                @include adaptive-value('height',90,75,1)
+
+                border-radius: 6px
+
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: space-around
+
+                padding: 10px 0
+
+                position: relative
+
+                &::before
+                    content: ""
+                    position: absolute
+                    inset: 0
+                    border-radius: 6px
+                    padding: 1px
+                    background: #D4D9E7
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+                    -webkit-mask-composite: xor
+                    mask-composite: exclude
+
+                .m1__method_check
+                    display: none
+                    position: absolute
+                    top: -7px
+                    right: -8px
+
+            .m1__pay_method:first-of-type + label
+                // @include adaptive-value('margin-right',48,28,1)
+
+            .m1__pay_method + label:hover
+                &::before
+                    background: linear-gradient(90deg, #8991AE 0%, #C0C7DC 100%)
+
+            .m1__pay_method:checked + label
+                &::before
+                    background: linear-gradient(180deg, #F34E4E 0%, #F4955F 51.56%, #F8C476 100%)
+
+                .m1__method_check
+                    display: block
+
+            .m1__pay_method_title
+                font-size: 14px
+
+            .m1__credit_card_img
+                @include adaptive-value('width',45,35,1)
+                @include adaptive-value('height',27,18,1)
+
+            .m1__pay_pal_img
+                @include adaptive-value('width',70,60,1)
+                @include adaptive-value('height',18,16,1)
+
+        .m1__main
+            @include adaptive-value('margin-top',40,10,1)
+
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+
+            width: 100%
+
+            .m1__order
+                padding-left: 20px
+
+                width: 100%
+
+                position: relative
+
+                .m1__order_title
+                    @include adaptive-value('font-size',20,18,1)
+
+                    margin-bottom: 20px
+
+                .m1__order_desc
+                    display: flex
+                    flex-direction: row
+                    justify-content: space-between
+
+                .m1__order_sale
+                    display: none
+
+                    margin-top: 20px
+
+                    flex-direction: row
+                    justify-content: space-between
+
+                    &._show
+                        display: flex
+
+                .horizontal
+                    margin: 20px 0
+
+                .m1__total
+                    display: flex
+                    flex-direction: row
+                    justify-content: space-between
+
+                    .b
+                        font-size: 18px
+
+                    .m1__total_coast
+                        font-size: 18px
+
+                .m1__saved
+                    display: none
+
+                    font-size: 14px
+                    text-align: right
+
+                    &._show
+                        display: block
+
+                .order__error
+                    display: none
+
+                    background: url('../img/error.png') 0% 0%/ contain no-repeat
+
+                    position: absolute
+                    bottom: 0
+                    right: -20px
+
+                    padding: 10px 0
+
+                    width: 320px
+                    height: 64px
+
+                    .order__error_title
+                        padding-right: 15px
+
+                        display: flex
+                        flex-direction: row
+                        align-items: center
+                        justify-content: center
+
+                        .order_error_img
+                            max-width: 16px
+                            max-height: 16px
+                            margin-right: 10px
+
+                    .order__error_desc
+                        text-align: center
+                        font-size: 12px
+                        padding-right: 15px
+
+                    &._show
+                        display: block
+
+            .vertical
+                width: 1px
+                min-height: 100%
+
+                background: #fff
+
+                margin-right: 40px
+                margin-left: 40px
+
+            .m1__pay
+                display: none
+
+                &._show
+                    display: block
+
+                .m1__icons
+                    margin-bottom: 10px
+
+                .card_container1
+                    width: 100%
+                    .form-payment__number
+                        background: #F0F4FB
+                        box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                        border-radius: 6px
+
+                        height: 50px
+
+                        padding: 17px 20px
+
+                        margin-bottom: 10px
+
+                .form-payment__wrap
+                    display: flex
+                    flex-direction: row
+                    justify-content: space-between
+
+                    width: 100%
+
+                    margin-bottom: 10px
+
+                    .card_container
+                        width: 150px
+                        .form-payment__date,.form-payment__cvv
+                            background: #F0F4FB
+                            box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                            border-radius: 6px
+
+                            height: 50px
+
+                            padding: 17px 20px
+
+                        .form-payment__cvv
+
+                .m1__email
+                    width: 100%
+                    height: 50px
+
+                    padding: 13px 20px
+
+                    font-size: 16px
+                    line-height: 24px
+                    color: #000
+
+                    background: #F0F4FB
+                    box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                    border: none
+                    border-radius: 6px
+
+                    margin-bottom: 10px
+
+                .test__uncorrect
+                    max-height: 0
+                    overflow: hidden
+
+                    transition: 0.5s 1s
+
+                    &._show
+                        max-height: 50px
+
+                #payment-request-button-apple,#payment-request-button
+                    width: 100%
+                    margin-top: 5px
+
+                #card-errors
+                    display: none
+
+                    margin-bottom: 10px
+
+                    &._show
+                        display: block
+
+                //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+                .sectPay__card
+                    width: 310px
+
+                    margin-top: 10px
+
+                    input
+                        border: none
+                        height: 50px
+
+                    .sectPay__numb
+                        width: 100%
+
+                        .numb-inp
+                            width: 100%
+
+                            padding-left: 70px
+
+                            background: #F0F4FB
+                            box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                            border-radius: 6px
+
+                    .sectPay__center
+                        display: flex
+                        flex-direction: row
+                        justify-content: space-between
+
+                        width: 100%
+
+                        margin-top: 10px
+
+                        .my
+
+                            .inputMY
+                                display: flex
+                                flex-direction: row
+                                align-items: center
+                                justify-content: center
+
+                                width: 150px
+
+                                background: #F0F4FB
+                                box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                                border-radius: 6px
+
+                                .month-inp
+                                    width: 25px
+
+                                    margin-right: 5px
+
+                                    text-align: center
+
+                                    background: transparent
+
+                                .year-inp
+                                    width: 25px
+
+                                    margin-left: 5px
+
+                                    text-align: center
+
+                                    background: transparent
+
+                        .cvv
+
+                            .cvv-inp
+                                width: 150px
+
+                                padding-left: 55px
+
+                                background: #F0F4FB
+                                box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+                                border-radius: 6px
+
+            #paypal-button-container
+                min-width: 310px
+
+            .order__error_M
+                display: none
+
+                background: url('../img/error_M.png') 0% 0%/ contain no-repeat
+
+                position: relative
+                bottom: 0
+                right: 0px
+
+                padding: 10px 0
+
+                margin-top: 10px
+
+                width: 300px
+                height: 70px
+
+                .order__error_title
+                    display: flex
+                    flex-direction: row
+                    align-items: center
+                    justify-content: center
+
+                    .order_error_img
+                        max-width: 16px
+                        max-height: 16px
+                        margin-right: 10px
+
+                .order__error_desc
+                    text-align: center
+                    font-size: 12px
+
+                    padding: 0 10px
+
+                &._show
+                    display: block
+
+            .m1__pay_pal
+                display: none
+
+                &._show
+                    display: block
+
+        .sectPay__btn
+            position: relative
+
+            margin-top: 5px
+
+            .m1__button_next
+                @extend %button
+
+                width: 310px
+
+                margin-top: 0px
+
+                &._email_block
+                    pointer-events: none
+                    opacity: 0.5
+
+            .data_pusher
+                width: 100%
+                height: 100%
+
+                display: none
+
+                position: absolute
+                top: 0
+                left: 0
+
+                cursor: pointer
+
+                &._show
+                    display: block
+
+                &._email_block
+                    display: block
+
+    .m2
+
+        @include adaptive-value('padding-right',40,0,1)
+        @include adaptive-value('padding-left',40,0,1)
+
+        @include adaptive-value('width',500,310,1)
+
+        .m2__title
+            font-size: 24px
+            line-height: 36px
+            text-align: center
+
+        .m2__desc
+            text-align: center
+
+            margin-top: 10px
+
+        .m2__main
+            @include adaptive-value('margin-top',30,10,1)
+
+            display: flex
+            flex-direction: column
+            align-items: center
+
+            .m2__graph_wrap
+                position: relative
+                width: fit-content
+
+                .m2__graph
+                    @include adaptive-value('width',375,310,1)
+
+                .m2__weight
+                    position: absolute
+                    @include adaptive-value('top',10,6,1)
+                    left: 3px
+
+                    border-radius: 3px
+                    background: #32384D
+
+                    padding: 3px 10px
+                    @include adaptive-value('padding-top',3,0,1)
+                    @include adaptive-value('padding-bottom',3,0,1)
+
+                    font-size: 14px
+
+                    &::after
+                        content: ''
+                        display: block
+
+                        position: absolute
+                        bottom: -6px
+                        @include adaptive-value('left',26,20,1)
+
+                        border-top: 6px solid #32384D
+                        border-right: 6px solid transparent
+                        border-left: 6px solid transparent
+
+                .m2__without
+                    position: absolute
+                    @include adaptive-value('top',33,30,1)
+                    @include adaptive-value('right',39,5,1)
+
+                    border-radius: 3px
+                    background: #32384D
+
+                    padding: 3px 10px
+                    @include adaptive-value('padding-top',3,0,1)
+                    @include adaptive-value('padding-bottom',3,0,1)
+
+                    font-size: 14px
+
+                    &::after
+                        content: ''
+                        display: block
+
+                        position: absolute
+                        bottom: -6px
+                        @include adaptive-value('left',39,24,1)
+
+                        border-top: 6px solid #32384D
+                        border-right: 6px solid transparent
+                        border-left: 6px solid transparent
+
+                .m2__with
+                    position: absolute
+                    @include adaptive-value('top',92,75,1)
+                    @include adaptive-value('right',57,33,1)
+
+                    border-radius: 3px
+                    background: #32384D
+
+                    padding: 3px 10px
+                    @include adaptive-value('padding-top',3,0,1)
+                    @include adaptive-value('padding-bottom',3,0,1)
+
+                    font-size: 14px
+
+                    &::after
+                        content: ''
+                        display: block
+
+                        position: absolute
+                        bottom: -6px
+                        @include adaptive-value('left',24,20,1)
+
+                        border-top: 6px solid #32384D
+                        border-right: 6px solid transparent
+                        border-left: 6px solid transparent
+
+                .m2__today
+                    position: absolute
+                    bottom: -4px
+                    @include adaptive-value('left',19,10,1)
+
+                    font-size: 14px
+
+                    font-size: 12px
+
+                .m2__mounth
+                    position: absolute
+                    @include adaptive-value('right',85,65,1)
+                    bottom: -4px
+
+                    font-size: 12px
+
+            .m2__graph_desc
+                text-align: center
+                font-size: 12px
+                line-height: 18px
+
+                margin-top: 10px
+
+                @include adaptive-value('margin-right',0,48,1)
+                @include adaptive-value('margin-left',0,48,1)
+
+            .m2__care
+                background: linear-gradient(107.56deg, #222933 0%, #242932 23.44%, #232731 42.71%, #2B2F36 67.04%, #252935 81.77%)
+                border-radius: 6px
+
+                margin-top: 30px
+
+                padding: 20px
+
+                text-align: center
+
+        .js-modal-close
+            @extend %button
+
+            width: 300px
+
+            @include adaptive-value('margin-top',30,10,1)
+
+    .m3
+        @include adaptive-value('width',500,310,1)
+
+        .m3__close
+
+        .m__title
+            font-size: 24px
+            line-height: 36px
+            text-align: center
+
+            margin-bottom: 10px
+
+        .m__text,.m__desc
+            text-align: center
+
+$circle: #fff
+$loader-size: 50px
+$circle-size: 12px
+$calc-center: $loader-size / 2 - $circle-size / 2
+
+.m1__load_title
+    font-size: 18px
+    text-align: center
+    font-weight: 600
+
+    margin-top: 10px
+
+.m1__load_desc
+    text-align: center
+    margin-top: 10px
+
+.m1__loading
+    display: none
+
+.spiner
+    position: relative
+
+    width: $loader-size
+    height: $loader-size
+
+    margin: 0 auto
+    margin-top: 10px
+
+    &__container
+        position: absolute
+        top: 0
+        left: 0
+        width: $loader-size
+        height: $loader-size
+        &_2
+            transform: rotate(45deg)
+    &__circle
+        width: $circle-size
+        height: $circle-size
+        border-radius: 50%
+        background: #8991AE
+        transform: scale(0%)
+        position: absolute
+        &_1
+            top: 0
+            left: $calc-center
+        &_2
+            right: 0
+            top: $calc-center
+        &_3
+            bottom: 0
+            left: $calc-center
+        &_4
+            left: 0
+            top: $calc-center
+
+@for $i from 1 through 8
+    .spiner__circle_animation-#{$i}
+        animation: spiner 1s .123s * $i infinite
+
+@keyframes spiner
+    0%
+        transform: scale(100%)
+    100%
+        transform: scale(10%)

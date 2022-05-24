@@ -1,0 +1,114 @@
+.contacts
+    min-height: 0
+    height: fit-content
+
+    z-index: 10
+
+    display: none
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    width: 100vw
+    height: 100vh
+
+    position: absolute
+    top: 0
+    &._show
+        display: flex
+
+    .contacts__bg
+        position: absolute
+        top: 0
+        left: 0
+
+        width: 100vw
+        height: 100vh
+        background: rgb(50, 56, 77, 0.3)
+
+        z-index: -1
+
+        backdrop-filter: blur(10px)
+
+    .contacts__content
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        @include adaptive-value('width',500,310,1)
+
+        position: absolute
+
+        padding: 40px 40px 60px 40px
+
+        z-index: 11
+
+        background: #fff
+
+        box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.15)
+        border-radius: 6px
+
+        .contacts__firecracker
+            position: absolute
+            top: -30px
+
+        .contacts__title,.contacts__title_M
+            display: none
+
+            font-size: 24px
+            line-height: 36px
+            text-align: center
+
+            @include adaptive-value2('margin-top',60,45,1)
+
+            &._show
+                display: block
+        .contacts__respect
+
+            width: 291px
+
+            display: flex
+            flex-direction: row
+            gap: 10px
+
+            @include adaptive-value('margin-top',40,25,1)
+
+            img
+                width: 21px
+                height: 21px
+
+        .contacts__email
+            width: 300px
+            height: 50px
+
+            padding: 13px 20px
+
+            font-size: 16px
+            line-height: 24px
+            color: #000
+
+            background: #F0F4FB
+            box-shadow: inset 0px 1px 1px rgba(50, 56, 77, 0.25)
+            border: none
+            border-radius: 6px
+
+            @include adaptive-value('margin-top',40,25,1)
+
+        .test__uncorrect
+            margin-top: 10px
+
+            max-height: 0
+            overflow: hidden
+
+            transition: 0.5s 1s
+
+            &._show
+                max-height: 50px
+
+        .test__button_next
+            @extend %button
+
+            width: 300px
+            height: 50px
+
+            @include adaptive-value('margin-top',40,25,1)

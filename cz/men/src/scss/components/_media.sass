@@ -1,0 +1,508 @@
+@media (max-width: 1024px)
+    .test_header
+        justify-content: center
+
+        min-height: 30px
+
+        .test_header__logo
+            position: absolute
+
+            display: flex
+            flex-direction: row
+            align-items: center
+            justify-content: center
+
+            width: 50%
+            // @include adaptive-value('width',34,30,1)
+
+            padding-left: 0
+
+            pointer-events: none
+
+            .test_header__change_lang
+                display: none
+
+            img
+                @include adaptive-value('height',30,26,1)
+
+            .test_header__lang
+                display: none
+
+        .test_header__progress_container
+            flex-direction: column-reverse
+
+            .test_header__progress_bar
+                margin-top: 10px
+                margin-bottom: 0
+    .test
+        justify-content: start
+
+        .test__question
+            margin-left: inherit
+            margin-bottom: 90px
+
+        .test__bg_cont
+            right: 0
+            left: auto
+
+            width: auto
+            .test__bg
+                top: 50px
+
+                height: 100%
+
+                .test__bg_main,.test__bg_main_M
+                    object-position: right top
+
+                    width: auto
+
+                .test__bg_icon
+                    display: none
+        .test__question
+            width: 60%
+            .test__inputs
+                label
+                    // grid-template-columns: auto auto 1fr
+
+                    background: rgba(17, 19, 23, 0.6)
+
+    .no_bg
+        .test__question
+            width: 100%
+    .grid
+        .test__question
+            .test__inputs
+                grid-template-columns: auto
+    .icons
+        .test__question
+            .test__inputs
+                label
+                    justify-content: start
+                    img
+                        display: block
+                    .test__input-text
+                        padding-left: 15px
+    .q1
+        .test__bg_cont
+            .test__bg
+                .test__bg_main
+                    transform: scaleX(-100%)
+    .q3,.q8,.q10,.q17,.q18
+        .test__question
+            .test__inputs
+                width: 100%
+    .q6
+        .test__bg_cont
+            .test__bg
+                .goal_graph_wrap
+                    left: -154px
+                    @include adaptive-value('bottom',0,-111,1)
+    .q8
+        .test__question
+            .test__inputs
+                @include adaptive-value('width',500,240,1)
+
+                grid-template-areas: "A"
+                label
+                    &:last-of-type
+                        grid-area: auto
+    .q11
+        .test__bg_cont
+            .test__bg
+                top: 70px
+    .q12
+        .test__bg_cont
+            .test__bg
+                top: 60px
+    .q13
+        .test__bg_cont
+            .test__bg
+                top: 70px
+    .q14
+        .test__bg_cont
+            .test__bg
+                top: 70px
+    .q3,.q4,.q8,.q10,.q17,.q18
+        .test__bg_cont
+            .test__bg
+                .test__bg_main
+                    display: none
+                .test__bg_main_M
+                    display: block
+
+@media (max-width: 500px)
+    .test
+        .test__question
+            align-items: start
+            .test__title
+                width: 100vw
+
+                padding-right: 10px
+                padding-left: 10px
+            .test__desc
+                width: 100vw
+
+    .no_bg
+        .test__question
+            align-items: center
+
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+@media (max-width: 1024px)
+    .plan
+        .plan__first
+            grid-template-columns: auto
+            grid-template-rows: auto auto auto
+            grid-template-areas: "T" "B" "I"
+
+            justify-items: center
+
+            height: auto
+            // max-height: 775px
+
+            .plan__title,.plan__title_M
+                margin-top: 68px
+
+                justify-self: center
+
+            .test__button_next
+                margin-right: 0
+
+                justify-self: center
+
+            .plan__plan
+                margin-top: 21px
+
+        .test__button_next:last-child
+            margin-bottom: 120px
+
+        .plan__second
+
+            .plan__graph_doun,.plan__graph_up
+
+                .plan__start_point
+
+                    border: 2px solid #32384D
+
+                .plan__goal_point
+
+                    border: 2px solid #FFFFFF
+
+    .test_header
+        &._plan
+            top: 0px
+            left: 0px
+
+            margin-top: 10px
+            .test_header__logo
+                padding: 0
+
+        &._checkout
+            position: relative
+            top: 0px
+            left: 0px
+
+            @include adaptive-value('margin-top',121,90,1)
+
+            z-index: 0
+            .test_header__logo
+                padding: 0
+
+@media (max-width: 700px)
+    .plan
+
+        .plan__third
+
+            .plan__results
+                flex-direction: column
+
+                .plan__similar
+
+                    margin-top: 30px
+
+            .plan__summary
+                grid-template-columns: 1fr
+                grid-template-rows: auto auto auto auto
+                grid-template-areas: 'BMI' 'Water' 'Calories' 'G'
+
+                .plan__recommendation
+                    margin-right: 5px
+                    margin-left: 5px
+
+                    .recommendation__b_a
+
+                        .plan__before
+                            padding-left: 20px
+
+                            @include adaptive-value('width',290,210,1)
+                            @include adaptive-value('height',374,288,1)
+
+                        .plan__after
+                            right: 5px
+
+                            @include adaptive-value('width',263,218,1)
+                            @include adaptive-value('height',375,289,1)
+
+@media (max-width: 500px)
+
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+@media (max-width: 1024px)
+    .checkout__header
+        justify-content: center
+        align-items: center
+        .checkout__sale
+            grid-template-columns: repeat(2, auto)
+            grid-template-rows: repeat(2, auto)
+            grid-template-areas: 'Title B' 'Timer B'
+
+            justify-content: space-around
+
+            margin-right: 0
+            margin-left: inherit
+
+            .sale__title
+                margin-right: 0
+
+            .sale__time
+                margin-top: 5px
+
+                max-width: 100px
+
+                justify-content: space-around
+
+                .time__minutes
+
+                    .minutes__text
+                        display: none
+
+                .time__seconds
+
+                    .seconds__text
+                        display: none
+
+            .chekout__button_next
+                margin-right: 10px
+
+                justify-content: center
+
+                img
+                    display: none
+
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+@media (max-width: 1024px)
+    .checkout
+
+        margin-top: 18px
+        .checkout__first
+            grid-template-columns: repeat(1,auto)
+            grid-template-rows: repeat(4,auto)
+            grid-template-areas: 'T' 'B' 'F' 'BG'
+
+            min-width: 0
+
+            @include adaptive-value('width',1000,300,1)
+            .checkout__title
+                text-align: center
+
+            .chekout__button_next
+                margin-top: 25px
+                margin-right: 0
+
+            .checkout__featured
+                margin-top: 20px
+                margin-left: -65px
+
+            .checkout__main-bg
+                display: flex
+                flex-direction: row-reverse
+                align-items: center
+                justify-content: start
+
+                position: relative
+                right: 0
+
+                width: 100%
+                @include adaptive-value('height',451,203,1)
+
+                .checkout__join_block
+
+                    @include adaptive-value('margin-left',120,10,1)
+
+                    position: static
+
+                    margin-right: auto
+
+        .checkout__second
+
+            max-width: 500px
+
+            padding: 0 10px
+
+            .checkout__second_title
+                text-align: center
+
+            .checkout__second_content
+                flex-direction: column
+
+                .checkout__get_img
+                    top: 0
+                    right: 0
+
+        .checkout__third
+
+            .checkout__pay
+
+                .checkout__tarif
+
+                    .tarif__price_container
+
+                        .tarif__price_block
+
+                            .tarif__old_price
+
+                                bottom: 0
+
+        .checkout__fourth
+
+            .swiper_1
+                margin-top: 20px
+
+                width: 320px
+
+                .swiper-wrapper
+                    margin-top: 40px
+
+                .swiper-pagination
+
+                    display: block
+
+        .checkout__bg_container
+
+            .checkout__fifth
+
+                .checkout__fifth_title
+
+                .checkout__fifth_desc
+
+                .swiper_2
+                    margin-top: 20px
+
+                    width: 320px
+
+                    .swiper-wrapper
+                        margin-top: 40px
+
+                        .swiper-slide
+                            box-shadow: 0px 2px 5px rgba(45, 60, 88, 0.2)
+
+                    .swiper-pagination
+
+                        display: block
+
+            .checout__sixth
+
+                .checkout__guarantee
+                    border: none
+                    margin-top: 0
+
+                    .checkout__guarantee_title
+                        background: transparent
+
+                        display: flex
+                        flex-direction: row
+
+                        padding: 0
+
+                        margin-bottom: 10px
+
+                        position: static
+                        .checkout__guarantee_img
+                            margin-right: 18px
+
+                            display: block
+
+                    .checkout__guarantee_content
+
+                        p
+                            padding-left: 0
+
+                        .checkout__guarantee_img
+                            display: none
+
+// ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+@media (max-width: 1024px)
+    .modal__container
+        .m1
+            width: 310px
+
+            overflow: auto
+
+            .m__img
+                top: 3px
+                transform: scale(0.8)
+
+            .m1__main
+                flex-direction: column
+                align-items: center
+
+                .m1__order
+                    padding-left: 0
+                    padding: 0 10px
+
+                    .m1__order_title
+                        text-align: center
+
+                .vertical
+                    display: none
+
+                .m1__pay
+                    display: none
+                    flex-direction: column
+                    align-items: center
+
+                    width: 290px
+
+                    &._show
+                        display: flex
+
+                    .form-payment__wrap
+
+                        .card_container
+                            width: 140px
+
+                    .sectPay__btn
+                        .m1__button_next
+                            width: 290px
+
+                    .order__error_M
+                        .order__error_title
+                            padding-right: 0
+                        .order__error_desc
+                            padding-right: 0
+
+                #paypal-button-container
+                    margin-top: 10px
+
+                    min-width: 290px
+
+            .m1__button_next
+                width: 290px
+
+        .m2
+            .m2__desc
+                margin-right: 5px
+                margin-left: 5px
+
+            .m2__main
+                flex-direction: column
+                align-items: center
+
+                .m2__care
+                    margin-right: 5px
+                    margin-left: 5px
+
+            .js-modal-close
+                width: 290px

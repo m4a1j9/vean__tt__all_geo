@@ -1,0 +1,108 @@
+<section class="pay">
+    <div class="section sectPay">
+        <div class="section__title">
+            <h4>
+                Чтобы получить доступ к курсу,
+                <br>
+                введите данные карты
+            </h4>
+        </div>
+        <div class="sectPay__imgCards">
+        </div>
+        <div class="sectPay__cards">
+            <form action="#" name="validation" id="validation" class="sectPay__card">
+                <div class="sectPay__numb">
+                    <p>
+                        Данные карты
+                    </p>
+                    <input class="numb-inp" maxlength="19" placeholder="* * * *    * * * *    * * * *    * * * *" type="tel"
+                        onclick="dataLayer.push({
+                            'event' : 'input_cardnumber',
+                            'category' : 'quiz pay',
+                            'action' : 'click',
+                            'label' : 'input_cardnumber'
+                         });">
+                </div>
+                <div class="sectPay__center">
+                    <div class="my">
+                        <p>
+                            Дата истечения срока действия
+                        </p>
+                        <div class="inputMY">
+                            <input class="month-inp" placeholder="*ММ " type="tel" maxlength="2" onclick="dataLayer.push({
+                                    'event' : 'input_mm',
+                                    'category' : 'quiz pay',
+                                    'action' : 'click',
+                                    'label' : 'input_mm'
+                                 });">
+                            <span> / </span>
+                            <input class="year-inp" placeholder=" *ГГ" type="tel" maxlength="2" onclick="dataLayer.push({
+                                    'event' : 'input_yy',
+                                    'category' : 'quiz pay',
+                                    'action' : 'click',
+                                    'label' : 'input_yy'
+                                 });">
+                        </div>
+                    </div>
+                    <div class="cvv">
+                        <p>
+                            CVC/CVV
+                        </p>
+                        <input class="cvv-inp" placeholder="*CVC / CVV" type="tel" maxlength="3" onclick="dataLayer.push({
+                                'event' : 'input_cvc',
+                                'category' : 'quiz pay',
+                                'action' : 'click',
+                                'label' : 'input_cvc'
+                             });">
+                    </div>
+                </div>
+                <div class="sectPay__name">
+                    <p>
+                        Имя владельца карты
+                    </p>
+                    <input class="name-inp" placeholder="*MARIA NOVAK" type="text" onclick="dataLayer.push({
+                            'event' : 'input_name',
+                            'category' : 'quiz pay',
+                            'action' : 'click',
+                            'label' : 'input_name'
+                         });">
+                </div>
+            </form>
+        </div>
+        <!--                     <div class="section1__check">
+            <div class="check">
+                <input type="checkbox" name="radPay" id="radPay" class="rad1 radPay">
+                <label for="radPay">Я принимаю <a href="#">Условия обслуживания</a> и <a href="#">Политику
+                        конфиденциальности</a>.</label>
+            </div>
+        </div> -->
+
+        <!--                     <div class="content__container-checkbox section1__check">
+            <div class="checkbox content-check check">
+                <input class="custom-checkbox rad1 radPay" type="checkbox" name="radPay" id="radPay">
+                <label for="radPay" id="PrivacyPolicy">
+                    Я принимаю Условия обслуживания и Политику конфиденциальности.
+                </label>
+            </div>
+        </div> -->
+        <div class="sectPay__btn">
+            <button class="btn-pay content-button js-open-modal" onclick="dataLayer.push({
+                    'event' : 'Subscribe',
+                    'category' : 'quiz pay',
+                    'action' : 'click',
+                    'label' : 'Subscribe'
+                 });" data-modal="2">
+                <p>
+                    Оплатить
+                </p>
+            </button>
+            <!-- <p class="cansel">Отменить <span class="br"></span> оплату</p> -->
+        </div>
+        <!-- <div class="sectPay__desc">
+            <p>  Pokud máte otázky nebo nějaký problém - napište mi:  </p>
+            <p>support@nowun.online</p>
+        </div> -->
+    </div>
+
+    <button class="test__buttonB"></button>
+</section>

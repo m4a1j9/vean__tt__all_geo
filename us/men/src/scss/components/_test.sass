@@ -1,0 +1,560 @@
+.test
+    @extend %section
+
+    overflow: hidden
+
+    justify-content: end
+
+    width: 100%
+
+    position: relative
+    .test__bg_cont
+        width: 60%
+
+        position: absolute
+        left: 0
+        // top: 30px
+        z-index: -1
+
+        display: flex
+        justify-content: center
+
+        .test__bg
+            display: flex
+            justify-content: center
+
+            position: relative
+
+            height: 100%
+
+            .test__bg_main,.test__bg_main_M
+                position: absolute
+
+                width: 100%
+
+            .test__bg_main_M
+                display: none
+                height: 100%
+
+            .test__bg_icon
+                position: absolute
+
+                width: 152px
+                height: 152px
+
+                background: #111317
+                box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.15)
+                border-radius: 50%
+
+            .goal_graph_wrap
+                position: absolute
+
+                left: 221px
+                bottom: 132px
+
+                .goal_graph_container
+                    position: relative
+
+                    .test__bg_graph
+                        @include adaptive-value('min-width',420 + 30,320,1)
+                        @include adaptive-value('height',239 + 15,176 + 15,1)
+
+                        z-index: 10
+
+                    .goal_graph_title
+                        position: absolute
+                        top: 36px
+                        left: 39px
+
+                    .goal_graph_date
+                        position: absolute
+                        top: 58px
+                        left: 39px
+
+                    .goal_graph_own
+                        position: absolute
+                        right: 97px
+                        bottom: 34px
+
+                        background: #F6F9FF
+                        border-radius: 3px
+
+                        &:after
+                            content: ''
+                            display: block
+                            border-bottom: 4px solid #F6F9FF
+                            border-right: 4px solid transparent
+                            border-left: 4px solid transparent
+
+                            position: absolute
+                            bottom: 100%
+                            left: 45%
+
+                    .goal_graph_workouts
+                        position: absolute
+                        top: 6px
+                        right: 47px
+
+                        text-align: center
+
+    .test__question
+        width: 50%
+
+        min-width: 200px
+
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        margin-left: auto
+
+        .test__title
+            @extend %title
+
+            min-width: 310px
+            max-width: 500px
+
+            @include adaptive-value('margin-top',30,20,1)
+        .test__desc
+            max-width: 500px
+            margin-top: 20px
+
+            text-align: center
+            @include adaptive-value('font-size',18,16,1)
+            line-height: 24px
+        .test__inputs
+            max-width: 500px
+            @include adaptive-value('width',500,200,1)
+
+            display: grid
+            gap: 20px
+
+            @include adaptive-value('margin-top',50,20,1)
+
+            .test__input,.test__nothing,.test__radio
+                display: none
+
+            label
+                display: grid
+                grid-template-rows: 1fr
+                grid-template-columns: auto 1fr
+                justify-content: start
+                align-items: center
+
+                background: rgba(17, 19, 23, 1)
+                box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.15)
+                border-radius: 6px
+                box-sizing: border-box
+
+                position: relative
+
+                cursor: pointer
+
+                transition: 0.3s
+                &:last-of-type
+                    margin-right: 0
+
+                .test__point
+                    min-width: 19px
+                    min-height: 19px
+
+                    border-radius: 50%
+                    box-sizing: border-box
+
+                    margin-right: 30px
+
+                    justify-self: end
+                .test__input-text
+                    height: 100%
+
+                    display: flex
+                    flex-direction: column
+                    align-items: start
+                    justify-content: center
+
+                    @include adaptive-value('padding-top',30,20,1)
+                    @include adaptive-value('padding-left',30,20,1)
+                    @include adaptive-value('padding-bottom',30,20,1)
+
+                    float: right
+                    // .test__input_title
+                    // .test__input_desc
+
+                .test__input_img
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    height: 100%
+
+                &:hover
+                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+            .test__input:checked + label,.test__nothing:checked + label,.test__radio:checked + label
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+
+                &::before
+                    content: ""
+                    position: absolute
+                    inset: 0
+                    border-radius: 5px
+                    padding: 1px
+                    background: linear-gradient(180deg, #F34E4E 0%, #F4955F 51.56%, #F8C476 100%)
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+                    -webkit-mask-composite: xor
+                    mask-composite: exclude
+
+                & .test__point
+                    background: url('../img/icons/check.png') 0% 0%/ contain no-repeat
+
+            .test__input[type=checkbox]:checked + label,.test__nothing[type=checkbox]:checked + label,.test__radio[type=checkbox]:checked + label
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+
+                &::before
+                    content: ""
+                    position: absolute
+                    inset: 0
+                    border-radius: 5px
+                    padding: 1px
+                    background: linear-gradient(180deg, #F34E4E 0%, #F4955F 51.56%, #F8C476 100%)
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)
+                    -webkit-mask-composite: xor
+                    mask-composite: exclude
+
+                &.test__point
+                    background: url('../img/icons/check_mark.png') 0 0/ cover no-repeat
+
+        .test__unit_type
+            display: flex
+            flex-direction: row
+
+            @include adaptive-value('margin-top',56,26,1)
+            @include adaptive-value('margin-bottom',41,21,1)
+
+            input
+                display: none
+
+            label
+                width: 62px
+                height: 30px
+
+                display: flex
+                align-items: center
+                justify-content: center
+
+                border: 1px solid #F4955F
+                box-sizing: border-box
+                background: transparent
+
+                color: #F4955F
+                font-weight: 600
+
+                &:first-of-type
+                    border-radius: 20px 0px 0px 20px
+                &:last-of-type
+                    border-radius: 0px 20px 20px 0px
+
+            input:checked + label
+                color: #fff
+                background: #F4955F
+
+                pointer-events: none
+
+        .test_unit_f,.test_unit_s
+            display: none
+
+            input
+                width: 110px
+                height: 60px
+
+                background: none
+                border: none
+
+                @include adaptive-value('font-size',32,24,1)
+                @include adaptive-value('line-height',42,26,1)
+                text-align: center
+                font-weight: 600
+
+                border-bottom: 1px solid #C0C7DC
+
+            label
+                color: #b0b2b683
+                font-weight: 600
+                font-size: 24px
+                line-height: 40px
+            input:valid + label
+                color: #CED4E4
+
+            &._show
+                display: block
+
+        .test__button_next
+            @extend %button
+
+.no_bg
+    .test__question
+        .test__inputs
+
+            label
+                justify-content: space-between
+.grid
+    .test__question
+        .test__inputs
+            grid-template-columns: 1fr 1fr
+
+            label
+                justify-content: space-between
+
+                padding-top: 20px
+                padding-left: 20px
+                padding-bottom: 20px
+
+                .test__input-text
+                    justify-content: center
+
+                    padding-top: 0
+                    padding-bottom: 0
+.icons
+    .test__question
+        .test__inputs
+            label
+                @include adaptive-value('padding-left',20,15,1)
+                img
+                    display: none
+                .test__input-text
+                    padding-left: 0
+
+.q1
+    .test__bg_cont
+        @include adaptive-value('height',667,413,1)
+        .test__bg
+            @include adaptive-value('width',634,387,1)
+            @include adaptive-value('right',0,-146,1)
+            right: auto
+            .test__bg_icon
+                bottom: 39px
+                left: -28px
+.q2
+    .test__bg_cont
+        @include adaptive-value('height',693,378,1)
+        .test__bg
+            @include adaptive-value('width',525,288,1)
+            @include adaptive-value('right',0,-93,1)
+            right: auto
+            .test__bg_icon
+                top: 69px
+                left: -21px
+.q3
+    .test__bg_cont
+        height: 623px
+        top: 30px
+        .test__bg
+            width: 460px
+            right: auto
+            .test__bg_icon
+                top: 96px
+                left: -43px
+    .test__question
+        .test__inputs
+            label
+                .test__input-text
+                    width: 100%
+                .test__input_img
+                    min-width: 128px
+                    width: 130px
+
+                    justify-self: end
+
+                    padding-right: 5px
+.q4
+    .test__bg_cont
+        @include adaptive-value('height',728,327,1)
+        .test__bg
+            @include adaptive-value('width',419,188,1)
+            @include adaptive-value('right',0,-54,1)
+            right: auto
+            .test__bg_icon
+                top: 311px
+                left: -86px
+
+.q5
+    .test__bg_cont
+        @include adaptive-value('height',445,278,1)
+        @include adaptive-value('top',50,0,1)
+        .test__bg
+            @include adaptive-value('width',452,284,1)
+            @include adaptive-value('right',0,-120,1)
+            right: auto
+            .test__bg_icon
+                bottom: 45px
+                left: -24px
+.q6
+    .test__bg_cont
+        @include adaptive-value('height',579,339,1)
+        @include adaptive-value('top',50,0,1)
+        .test__bg
+            @include adaptive-value('width',483,282,1)
+            @include adaptive-value('right',0,-121,1)
+            right: auto
+            .test__bg_icon
+                top: 16px
+                left: -7px
+.q7
+    .test__bg_cont
+        @include adaptive-value('height',578,370,1)
+        @include adaptive-value('top',20,30,1)
+        .test__bg
+            top: 50px
+            @include adaptive-value('width',579,372,1)
+            @include adaptive-value('right',0,-202,1)
+            right: auto
+            .test__bg_icon
+                top: 188px
+                left: -74px
+.q8
+    .test__bg_cont
+        height: 448px
+        @include adaptive-value('top',40,0,1)
+        .test__bg
+            top: 50px
+            width: 564px
+            right: auto
+            .test__bg_icon
+                bottom: 86px
+                left: -23px
+    .test__question
+        .test__inputs
+            grid-template-areas: "A A" "A A" "A A" "B B"
+
+            label
+                &:last-of-type
+                    grid-area: B
+.q9
+    .test__bg_cont
+        @include adaptive-value('height',692,375,1)
+        @include adaptive-value('top',0,30,1)
+        .test__bg
+            @include adaptive-value('width',501,246,1)
+            @include adaptive-value('right',0,-61,1)
+            right: auto
+            .test__bg_icon
+                bottom: 240px
+                left: -49px
+.q10
+    .test__bg_cont
+        height: 607px
+        top: 30px
+        .test__bg
+            top: -20px
+            width: 488px
+            right: auto
+            .test__bg_icon
+                bottom: 180px
+                left: -81px
+    .test__question
+        .test__inputs
+            label
+                padding-top: 0
+                padding-bottom: 0
+
+                @include adaptive-value('height',84,110,1)
+
+.q11
+    .test__bg_cont
+        @include adaptive-value('height',472,293,1)
+        top: 30px
+        .test__bg
+            top: 40px
+            @include adaptive-value('width',630,391,1)
+            @include adaptive-value('right',0,-209,1)
+            right: auto
+            .test__bg_icon
+                bottom: 47px
+                right: 117px
+.q12
+    .test__bg_cont
+        @include adaptive-value('height',523,303,1)
+        @include adaptive-value('top',40,30,1)
+        .test__bg
+            @include adaptive-value('width',522,301,1)
+            @include adaptive-value('right',0,-105,1)
+            right: auto
+            .test__bg_icon
+                top: 92px
+                left: -15px
+.q13
+    .test__bg_cont
+        @include adaptive-value('height',446,278,1)
+        top: 30px
+        .test__bg
+            top: 60px
+            @include adaptive-value('width',542,317,1)
+            @include adaptive-value('right',0,-96,1)
+            right: auto
+            .test__bg_icon
+                bottom: 0
+                right: 0
+.q14
+    .test__bg_cont
+        @include adaptive-value('height',730,385,1)
+        @include adaptive-value('top',0,30,1)
+        .test__bg
+            @include adaptive-value('width',425,222,1)
+            @include adaptive-value('right',0,-20,1)
+            right: auto
+            .test__bg_icon
+                bottom: 237px
+                left: -16px
+.q15
+    .test__bg_cont
+        @include adaptive-value('height',582,338,1)
+        top: 40px
+        .test__bg
+            @include adaptive-value('width',565,329,1)
+            @include adaptive-value('right',0,-107,1)
+            right: auto
+            .test__bg_icon
+                top: 47px
+                left: -8px
+.q16
+    .test__bg_cont
+        @include adaptive-value('height',580,337,1)
+        top: 30px
+        .test__bg
+            @include adaptive-value('width',520,303,1)
+            @include adaptive-value('right',0,-100,1)
+            right: auto
+            .test__bg_icon
+                top: 10px
+                right: 0
+.q17
+    .test__bg_cont
+        height: 636px
+        .test__bg
+            width: 507px
+            right: auto
+            .test__bg_icon
+                top: 115px
+                right: -40px
+    .test__question
+        .test__inputs
+            label
+                padding-top: 0
+                padding-bottom: 0
+
+                @include adaptive-value('height',84,110,1)
+.q18
+    .test__bg_cont
+        height: 416px
+        top: 120px
+        .test__bg
+            width: 552px
+            right: auto
+            .test__bg_icon
+                top: -22px
+                left: -12px
+    .test__question
+        .test__inputs
+            label
+                padding-top: 0
+                padding-bottom: 0
+
+                @include adaptive-value('height',100,110,1)
