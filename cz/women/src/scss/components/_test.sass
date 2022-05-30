@@ -62,18 +62,27 @@
 
                     .goal_graph_title
                         position: absolute
-                        top: 36px
-                        left: 39px
+                        @include adaptive-value('top',36,24,1)
+                        @include adaptive-value('left',39,27,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                     .goal_graph_date
                         position: absolute
-                        top: 58px
-                        left: 39px
+                        @include adaptive-value('top',58,45,1)
+                        @include adaptive-value('left',39,27,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                     .goal_graph_own
                         position: absolute
-                        right: 97px
-                        bottom: 34px
+                        @include adaptive-value('right',97,87,1)
+                        @include adaptive-value('bottom',34,28,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                         background: #F6F9FF
                         border-radius: 3px
@@ -91,8 +100,11 @@
 
                     .goal_graph_workouts
                         position: absolute
-                        top: 6px
-                        right: 47px
+                        @include adaptive-value('top',6,7,1)
+                        @include adaptive-value('right',47,19,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                         text-align: center
 
@@ -106,6 +118,8 @@
         align-items: center
 
         margin-left: auto
+
+        margin-bottom: 150px
 
         .test__title
             @extend %title

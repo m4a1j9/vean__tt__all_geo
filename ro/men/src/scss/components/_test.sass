@@ -63,18 +63,27 @@
 
                     .goal_graph_title
                         position: absolute
-                        top: 36px
-                        left: 39px
+                        @include adaptive-value('top',36,24,1)
+                        @include adaptive-value('left',39,27,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                     .goal_graph_date
                         position: absolute
-                        top: 58px
-                        left: 39px
+                        @include adaptive-value('top',58,45,1)
+                        @include adaptive-value('left',39,27,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                     .goal_graph_own
                         position: absolute
-                        right: 97px
-                        bottom: 34px
+                        @include adaptive-value('right',97,87,1)
+                        @include adaptive-value('bottom',34,28,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
 
                         background: #F6F9FF
                         border-radius: 3px
@@ -92,8 +101,13 @@
 
                     .goal_graph_workouts
                         position: absolute
-                        top: 6px
-                        right: 47px
+                        @include adaptive-value('top',6,7,1)
+                        @include adaptive-value('right',47,19,1)
+
+                        @include adaptive-value('font-size',16,14,1)
+                        @include adaptive-value('line-height',24,16,1)
+
+                        @include adaptive-value('max-width',255,170,1)
 
                         text-align: center
 
@@ -357,13 +371,15 @@
             label
                 .test__input-text
                     width: 100%
+                    padding-top: 0
+                    padding-bottom: 0
                 .test__input_img
                     min-width: 128px
                     width: 130px
 
                     justify-self: end
 
-                    padding-right: 5px
+                    // padding-right: 5px
 .q4
     .test__bg_cont
         @include adaptive-value('height',728,327,1)

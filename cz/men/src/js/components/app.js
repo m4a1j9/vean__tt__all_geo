@@ -517,8 +517,22 @@ switch (country) {
             currency = 'ron'
         break;
 
+    case 'CZ':
+        var mark = 'Kč',
+            stripeErrorMessage = 'Číslo vaší karty je neplatné.',
+            currency = 'czk'
+        break;
+
+    case 'PL':
+        var mark = 'zł',
+            stripeErrorMessage = 'Twój numer karty jest nieprawidłowy.',
+            currency = 'pln'
+        break;
+
     default:
-        var mark = '$'
+        var mark = '$',
+            stripeErrorMessage = 'Your card number is invalid.',
+            currency = 'usd'
         break;
 }
 
@@ -543,7 +557,6 @@ var
     questionsLenght = 17,
     planSection = 18,                                                   //! plan
     paySection = 19,                                                    //! pay
-    langByDate = lang + '-' + country,
     localPredix = 'vean_',                                              //! Локальный перфикс и значения для localStorage
     lsProgress = localPredix + 'progress',
     lsEmail = localPredix + 'email',
@@ -565,8 +578,15 @@ var
     healthy = 'Healthy',
     overweight = 'Overweight',
     obese = 'Obese',
-    strokeColor = ''
+    strokeColor = '',
+    langByDate = lang + '-' + country
     ;
+
+// в методе toLocaleString() параметр locale принимает значение, иногда отличающееся от общепринятого
+if (lang === 'cz') {
+    langByDate = 'cs' + '-' + country
+}
+
 gender === 'male' ? strokeColor = '#32384D' : strokeColor = '#CED4E4'
 
 let utm_campaign,
@@ -585,9 +605,9 @@ gender === 'male' ? iventPrefix = 'm_' : iventPrefix = 'f_'
 gender === 'male' ? iventPrefix2 = 'male_' : iventPrefix2 = 'female_'
 
 var ftSum = 0,
-	ftValue = 0,
-	inValue
-	;
+    ftValue = 0,
+    inValue
+    ;
 
 
 
@@ -661,11 +681,11 @@ var
 baseline.setAttribute('stroke-width', 4)
 mainline.setAttribute('stroke-width', 4)
 
-m1__tarif_coast.textContent = mark + ' ' + amount
-m1__total_coast.textContent = mark + ' ' + amount
+m1__tarif_coast.innerHTML = mark + '&#160;' + amount
+m1__total_coast.innerHTML = mark + '&#160;' + amount
 trial__currenncy.textContent = mark
 note__cost.textContent = mark
-tarif__old_price.textContent = mark + ' ' + amount
+tarif__old_price.innerHTML = mark + '&#160;' + amount
 
 
 
@@ -741,8 +761,8 @@ for (let index = 0; index < sections.length; index++) {
                         test__button_next.forEach(el => el.disabled = true);
                     }
                 } else if (/ft/.test(input.id)) {
-					ftValue = input.value
-					ftSum = (ftValue * 12) + +inValue
+                    ftValue = input.value
+                    ftSum = (ftValue * 12) + +inValue
                     if (ftSum >= 42 && ftSum <= 90) {
 
                         test__button_next.forEach(el => el.disabled = false);
@@ -752,8 +772,8 @@ for (let index = 0; index < sections.length; index++) {
                         test__button_next.forEach(el => el.disabled = true);
                     }
                 } else if (/in/.test(input.id)) {
-					inValue = input.value
-					ftSum = (ftValue * 12) + +inValue
+                    inValue = input.value
+                    ftSum = (ftValue * 12) + +inValue
                     if (ftSum >= 42 && ftSum <= 90) {
 
                         test__button_next.forEach(el => el.disabled = false);

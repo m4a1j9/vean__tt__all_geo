@@ -39,7 +39,7 @@
 
         .test__question
             margin-left: inherit
-            margin-bottom: 90px
+            margin-bottom: 150px
 
         .test__bg_cont
             right: 0
@@ -92,6 +92,8 @@
             .test__inputs
                 width: 100%
     .q6
+        .test__question
+            @include adaptive-value('margin-bottom',420,340,1)
         .test__bg_cont
             .test__bg
                 .goal_graph_wrap
@@ -187,6 +189,9 @@
                 .plan__goal_point
 
                     border: 2px solid #FFFFFF
+
+        .test__button_next:last-child
+            margin-bottom: 150px
 
     .test_header
         &._plan
@@ -353,6 +358,8 @@
         .checkout__third
 
             .checkout__pay
+                .checkout__guarante
+                    padding: 0 5px
 
                 .checkout__tarif
 

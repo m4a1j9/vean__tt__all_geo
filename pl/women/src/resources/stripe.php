@@ -3,8 +3,8 @@
 class Stripe
 {
     const SECRET_KEY = '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';
-    const AMOUNT = '4.00';
-    const CURRENCY = 'RON';
+    const AMOUNT = '22.49';
+    const CURRENCY = 'CZK';
     const API_URL = 'https://api.stripe.com/v1/payment_intents';
 
     public function createPayment(string $method, string $contentType)

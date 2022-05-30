@@ -2,8 +2,6 @@
 // Рекомендуется создавать отдельный файл в папке components и подключать все там
 
 var
-    contacts__title = document.querySelector('.contacts__title'),
-    contacts__title_M = document.querySelector('.contacts__title_M'),
     plan__title = document.querySelector('.plan__title'),
     plan__title_M = document.querySelector('.plan__title_M'),
     checkout__checkout = document.querySelector('.checkout__checkout'),
@@ -12,9 +10,6 @@ var
 // Определение операционной системы на мобильных
 import { mobileCheck } from "./functions/mobile-check";
 if (mobileCheck() !== 'unknown') {
-    contacts__title.classList.remove('_show')
-    contacts__title_M.classList.add('_show')
-
     plan__title.classList.remove('_show')
     plan__title_M.classList.add('_show')
 

@@ -108,7 +108,7 @@ const swiper2 = new Swiper('.swiper_2', {
 function calcRecommendations(gender) {
     let waterType = 0,
         calType = 0;
-    if (gender === 'men') {
+    if (gender === 'male') {
         waterType = 35
         calType = -5
     } else {
@@ -517,8 +517,22 @@ switch (country) {
             currency = 'ron'
         break;
 
+    case 'CZ':
+        var mark = 'Kč',
+            stripeErrorMessage = 'Číslo vaší karty je neplatné.',
+            currency = 'czk'
+        break;
+
+    case 'PL':
+        var mark = 'zł',
+            stripeErrorMessage = 'Twój numer karty jest nieprawidłowy.',
+            currency = 'pln'
+        break;
+
     default:
-        var mark = '$'
+        var mark = '$',
+            stripeErrorMessage = 'Your card number is invalid.',
+            currency = 'usd'
         break;
 }
 
@@ -541,10 +555,8 @@ var
     currentWeightSection = 4,                                           //! Текущий вес
     goalWeightSection = 5,                                              //! Цель
     questionsLenght = 17,
-    contactsSection = 18,                                               //! contacts
-    planSection = 19,                                                   //! plan
-    paySection = 20,                                                    //! pay
-    langByDate = lang + '-' + country,
+    planSection = 18,                                                   //! plan
+    paySection = 19,                                                    //! pay
     localPredix = 'vean_',                                              //! Локальный перфикс и значения для localStorage
     lsProgress = localPredix + 'progress',
     lsEmail = localPredix + 'email',
@@ -566,9 +578,16 @@ var
     healthy = 'Healthy',
     overweight = 'Overweight',
     obese = 'Obese',
-    strokeColor = ''
+    strokeColor = '',
+    langByDate = lang + '-' + country
     ;
-gender === 'men' ? strokeColor = '#32384D' : strokeColor = '#CED4E4'
+
+// в методе toLocaleString() параметр locale принимает значение, иногда отличающееся от общепринятого
+if (lang === 'cz') {
+    langByDate = 'cs' + '-' + country
+}
+
+gender === 'male' ? strokeColor = '#32384D' : strokeColor = '#CED4E4'
 
 let utm_campaign,
     utm_source,
@@ -586,9 +605,9 @@ gender === 'male' ? iventPrefix = 'm_' : iventPrefix = 'f_'
 gender === 'male' ? iventPrefix2 = 'male_' : iventPrefix2 = 'female_'
 
 var ftSum = 0,
-	ftValue = 0,
-	inValue
-	;
+    ftValue = 0,
+    inValue
+    ;
 
 
 
@@ -637,14 +656,6 @@ if (localStorage[lsKg_C]) kg_C.value = localStorage[lsKg_C]
 if (localStorage[lsLbs_G]) lbs_G.value = localStorage[lsLbs_G]
 if (localStorage[lsKg_G]) kg_G.value = localStorage[lsKg_G]
 
-if (+localStorage[lsProgress] === contactsSection) {
-    reserved.classList.remove('g')
-    email.classList.remove('g')
-    terms_el.classList.remove('g')
-    privacy.classList.remove('g')
-    cookie.classList.remove('g')
-}
-
 checkGoalType()
 calcGoalDate(new Date(), 2, plan__goal_date)
 calcGraphDate(new Date(), 0, plan__graph_date_1, false)
@@ -670,11 +681,11 @@ var
 baseline.setAttribute('stroke-width', 4)
 mainline.setAttribute('stroke-width', 4)
 
-m1__tarif_coast.textContent = mark + ' ' + amount
-m1__total_coast.textContent = mark + ' ' + amount
+m1__tarif_coast.innerHTML = mark + '&#160;' + amount
+m1__total_coast.innerHTML = mark + '&#160;' + amount
 trial__currenncy.textContent = mark
 note__cost.textContent = mark
-tarif__old_price.textContent = mark + ' ' + amount
+tarif__old_price.innerHTML = mark + '&#160;' + amount
 
 
 
@@ -750,8 +761,8 @@ for (let index = 0; index < sections.length; index++) {
                         test__button_next.forEach(el => el.disabled = true);
                     }
                 } else if (/ft/.test(input.id)) {
-					ftValue = input.value
-					ftSum = (ftValue * 12) + +inValue
+                    ftValue = input.value
+                    ftSum = (ftValue * 12) + +inValue
                     if (ftSum >= 42 && ftSum <= 90) {
 
                         test__button_next.forEach(el => el.disabled = false);
@@ -761,8 +772,8 @@ for (let index = 0; index < sections.length; index++) {
                         test__button_next.forEach(el => el.disabled = true);
                     }
                 } else if (/in/.test(input.id)) {
-					inValue = input.value
-					ftSum = (ftValue * 12) + +inValue
+                    inValue = input.value
+                    ftSum = (ftValue * 12) + +inValue
                     if (ftSum >= 42 && ftSum <= 90) {
 
                         test__button_next.forEach(el => el.disabled = false);
@@ -773,25 +784,6 @@ for (let index = 0; index < sections.length; index++) {
                     }
                 }
 
-            } else if (input.getAttribute('type') === 'email') {
-                test__uncorrect.classList.remove('_show');
-
-                if (EmailValidator.validate(input.value) === false) {
-
-                    setTimeout(() => {
-                        test__uncorrect.classList.add('_show');
-                    }, 1500);
-                    test__button_next.forEach(el => el.disabled = true);
-
-                } else {
-                    setTimeout(() => {
-                        test__uncorrect.classList.remove('_show');
-                    }, 1500);
-
-                    test__uncorrect.classList.remove('_show');
-                    localStorage.setItem(lsEmail, input.value)
-                    test__button_next.forEach(el => el.disabled = false);
-                }
 
             } else {
 
@@ -907,20 +899,6 @@ for (let index = 0; index < sections.length; index++) {
                 writeWeight(test_unit_first, lbs_G, kg_G)
 
 
-            } else if (index === contactsSection) {             //! contacts
-
-
-                test_header.classList.add('_plan')
-                checkGoalType()
-                calcRecommendations(gender)
-                reserved.classList.add('g')
-                email.classList.add('g')
-                terms_el.classList.add('g')
-                privacy.classList.add('g')
-                cookie.classList.add('g')
-                putData(19, localStorage[lsEmail])
-
-
             } else if (index === planSection) {                   //! plan
 
 
@@ -961,7 +939,7 @@ for (let index = 0; index < sections.length; index++) {
                 progress.setAttribute(`value`, +localStorage[lsProgress] + 1);
                 window.scrollTo(0, 0);
 
-                if (index < contactsSection) {
+                if (index < planSection) {
                     dataLayer.push({
                         'event': `${iventPrefix}question_${+localStorage[lsProgress] + 1}`,
                         'category': `quiz`,
@@ -1063,6 +1041,7 @@ for (let index = 0; index < checkout__FQA.length; index++) {
         FQA__opened.classList.toggle('_opened')
     }
 }
+
 
 
 langs.forEach(el => {
@@ -1201,32 +1180,32 @@ m1__pay_method.forEach(el => {
 
 
 
-// m1__email.addEventListener('input', (e) => {
-//     test__uncorrect.classList.remove('_show');
+m1__email.addEventListener('input', (e) => {
+    test__uncorrect.classList.remove('_show');
 
-//     if (EmailValidator.validate(m1__email.value) === false) {
+    if (EmailValidator.validate(m1__email.value) === false) {
 
-//         setTimeout(() => {
-//             test__uncorrect.classList.add('_show');
-//         }, 1500);
+        setTimeout(() => {
+            test__uncorrect.classList.add('_show');
+        }, 1500);
 
-//         data_pusher.classList.add('_email_block')
-//         stripe_button.classList.add('_email_block')
+        data_pusher.classList.add('_email_block')
+        stripe_button.classList.add('_email_block')
 
-//     } else {
-//         setTimeout(() => {
-//             test__uncorrect.classList.remove('_show');
-//         }, 1500);
+    } else {
+        setTimeout(() => {
+            test__uncorrect.classList.remove('_show');
+        }, 1500);
 
-//         test__uncorrect.classList.remove('_show');
-//         localStorage.setItem(lsEmail, m1__email.value)
+        test__uncorrect.classList.remove('_show');
+        localStorage.setItem(lsEmail, m1__email.value)
 
-//         data_pusher.classList.remove('_email_block')
-//         stripe_button.classList.remove('_email_block')
+        data_pusher.classList.remove('_email_block')
+        stripe_button.classList.remove('_email_block')
 
-//         putData(planSection, localStorage[lsEmail])
-//     }
-// })
+        putData(planSection, localStorage[lsEmail])
+    }
+})
 
 
 
@@ -1805,16 +1784,4 @@ paypal.Buttons({
         console.log(data)
     }
 }).render('#paypal-button-container'); // Renders the PayPal button
-
-
-
-
-
-
-
-
-
-
-
-
 
